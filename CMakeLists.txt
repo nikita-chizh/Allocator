@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
+MESSAGE(STATUS $ENV{TRAVIS_BUILD_NUMBER})
 project(Allocator)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -33,7 +34,7 @@ target_link_libraries(allocator list
         my_alloc
         )
 
-install(TARGETS allocator RUNTIME DESTINATION bin)
+install(TARGETS Allocator RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set( CPACK_PACKAGE_FILE_NAME allocator)
