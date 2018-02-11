@@ -3,13 +3,13 @@ MESSAGE(STATUS $ENV{TRAVIS_BUILD_NUMBER})
 project(Allocator)
 
 set(CMAKE_CXX_STANDARD 14)
-include (CTest)
+#include (CTest)
 add_library(my_alloc Memory_Pool.cpp Memory_Pool.h Check.h My_Allocator.h)
 add_library(list Linked_List.h Linked_List.cpp Node.h)
 
 add_executable(allocator main.cpp)
 add_executable(TEST tests.cpp)
-add_test(memtest allocator)
+#add_test(memtest allocator)
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 set(CMAKE_CXX_STANDARD 14)
