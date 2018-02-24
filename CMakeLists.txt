@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 MESSAGE(STATUS $ENV{TRAVIS_BUILD_NUMBER})
-project(Allocator)
+project(Allocator VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 set(CMAKE_CXX_STANDARD 14)
 #include (CTest)
@@ -35,9 +35,11 @@ target_link_libraries(allocator list
         )
 
 install(TARGETS allocator RUNTIME DESTINATION bin)
-
 set(CPACK_GENERATOR DEB)
-set( CPACK_PACKAGE_FILE_NAME allocator)
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT nikita1993chizh@gmail.com)
 include(CPack)
 enable_testing()
+add_test(TEST TEST)
